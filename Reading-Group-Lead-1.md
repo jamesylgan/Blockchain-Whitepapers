@@ -1,10 +1,33 @@
+* BOMB [website](https://bombtoken.com/), [relevant reading](https://www.coindesk.com/blockchain-token-velocity-problem)
+* Libra [whitepaper](https://libra.org/en-US/white-paper/)	
+* Tezos [whitepaper](https://tezos.com/static/white_paper-2dc8c02267a8fb86bd67a108199441bf.pdf), [technical whitepaper](https://developers.libra.org/docs/the-libra-blockchain-paper)
 * RChain [whitepaper](
 https://docs.google.com/gview?url=https://github.com/rchain/reference/raw/master/docs/RChainWhitepaper.pdf), [system architecture](https://architecture-docs.readthedocs.io/introduction/architecture-overview.html)
-* Tezos [whitepaper](https://tezos.com/static/white_paper-2dc8c02267a8fb86bd67a108199441bf.pdf)
-* BOMB [website](https://bombtoken.com/), [relevant reading](https://www.coindesk.com/blockchain-token-velocity-problem)
-* Libra [whitepaper](https://libra.org/en-US/white-paper/)
 
-# RChain
+# BOMB: A self-depreciating token
+Token Velocity problem: 
+- Definition: Too many ICOs/companies relying on the (false?) underlying idea that demand for their token will rise, resulting in price and value gain.
+	+ We can say that an asset has a velocity of 0 if, over the course of a year, no one buys or sells it. The lack of liquidity would cause the asset to trade at a discount to its “intrinsic” value. Assets need some velocity to achieve their full intrinsic value. The difference is known as the liquidity premium.
+- Reduce velocity: Profit-share, staking, burn-and-mint, gamification to encourage holding, store of value.
+- Tl;dr, why would you hold the token?
+- Bomb: "If you don't hold it, you lose some value!" self-deflationary
+
+# Libra: A centralized Blockchain from Facebook, PayPal, etc, with reserves held in cash to back the token
+## Nontechnical Overview
+- Try to enable innovation around financial services and accessibility
+- Focus on mobile-accessible? Potentially difficult
+- Reduce fees via blockchain (like all blockchain)
+- **Adoption through scale and reputation (Libra Association)**
+- **Governed by Libra Association**
+- Stablecoin aspects: backed by reserves held in traditional assets by Libra Association (FB and co)
+- Profits from reserves go to Libra Association
+- Move (Eth-like types, automatic proofs for txs), BFT (Weak, security through trust of Libra Association), built off existing mechanisms (BFT, Merkle Trees a la Bitcoin, etc), pseudoanonymous (a.k.a Libra Association could regulate in some way and reveal identity to govts)
+
+
+# Tezos: A self-governing, self-amending, PoS blockchain with FP and provable code
+
+
+# RChain: A blockchain driven by Rho Calculus
 - Built around a person: like BDFL for Python. Good? Bad? Some recent controversy around it. Lots of buzzwords, but also founded in academia
 - Rho VM: "Concurrent execution engine, unprecedented speed and scalability"
 - Interchain by design: how?
@@ -23,17 +46,3 @@ https://docs.google.com/gview?url=https://github.com/rchain/reference/raw/master
 	+ The Casper consensus protocol includes stake-based bonding, unbonding, and betting cycles that result in consensus.
 	+ Unlike Ethereum’s betting on a whole blocks, RChain’s betting is on logical propositions. 
   + A proposition is a set of statements about the blockchain, for example: which transactions (i.e. proposed state transitions) must be included, in which order, which transactions should not be included, or other properties. A concrete example of a proposition is: “transaction t should occur before transaction s” and “transaction r should not be included”. 
-		
-
-# Tezos
-??
-
-# BOMB
-Token Velocity problem: 
-- Definition: Too many ICOs/companies relying on the (false?) underlying idea that demand for their token will rise, resulting in price and value gain.
-	+ We can say that an asset has a velocity of 0 if, over the course of a year, no one buys or sells it. The lack of liquidity would cause the asset to trade at a discount to its “intrinsic” value. Assets need some velocity to achieve their full intrinsic value. The difference is known as the liquidity premium.
-- Reduce velocity: Profit-share, staking, burn-and-mint, gamification to encourage holding, store of value.
-- Tl;dr, why would you hold the token?
-- Bomb: "If you don't hold it, you lose some value!" self-deflationary
-
-# Libra
