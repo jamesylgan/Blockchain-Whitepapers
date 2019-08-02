@@ -4,6 +4,8 @@
 * RChain [whitepaper](
 https://docs.google.com/gview?url=https://github.com/rchain/reference/raw/master/docs/RChainWhitepaper.pdf), [system architecture](https://architecture-docs.readthedocs.io/introduction/architecture-overview.html)
 
+------------
+
 # BOMB: A self-depreciating token
 Token Velocity problem: 
 - Definition: Too many ICOs/companies relying on the (false?) underlying idea that demand for their token will rise, resulting in price and value gain.
@@ -12,7 +14,24 @@ Token Velocity problem:
 - Tl;dr, why would you hold the token?
 - Bomb: "If you don't hold it, you lose some value!" self-deflationary
 
+------------
+
 # Libra: A centralized Blockchain from Facebook, PayPal, etc, with reserves held in cash to back the token
+## Discussion Points
+- Similarities to Ethereum
+- Governance model: Libra Association
+- Transition to open membership
+- Stablecoin mechanism / Reserves
+- Financial inclusion (40Mbps requirement?)
+- Throughput -> 70x slower than Ripple with 2.5x the finalization speed
+- Centralization?
+- See technical assumptions, cool mechanisms sections below.
+	+ Stablecoin assumptions from reserves
+	+ Require 40Mbps internet connection
+	+ Assuming that it's easy to scale from parallelism on a Blockchain network
+	+ Allowing any authorized reseller to mint new coins, with no verifiable way that deposits were actually made, with Libra Association choosing who gets to be an authorized reselled. Lots of points of exposure, and they claim a guaruntee that Libra cannot mint new counts themselves even though they get to choose who can
+	+ Merkle Tree Optimization
+	+ Account Rent, like the Whale Protocol
 ## Stated Goals:
 - Global collaborative effort
 - Foster innovation
@@ -21,9 +40,10 @@ Token Velocity problem:
 ## Technical Assumptions I Found
 1. "Coin will inherit low inflation, stability due to reserves in bank deposits basket" - not necessarily. Lots of stablecoin literature debating this, with various reserve-backed coins failing to maintain peg. p2
 2. "Bank deposits basket will be stable" ->  What about in a global financial crisis? Bank runs? Other issues? Un-peg resulting in lack of faith with Libra? Would it recover? How? p2
-3. 
+3. "Most blockchains are UTXO based" p14. Fairly old paradigm.
 4. "Require a 40Mbps internet connection" for throughput estimates, p22. VERY high. Geopartitioning difficult. Financial exclusion. Many blockchains aim far lower especially when trying to be inclusive. Loses out on benefits from validator design while also not being decentralized.
 5. "Easy to scale through parallelism" p23
+6. "For new coins to be minted, must be commensurate fiat deposit in the reserve" p24 -> How is this verified? Off chain actions... **Oracles**
 ## Issues
 - "New global currency" - obvious issues with government. 
 - Deferring many of the most challenging parts of implementation, p7, etc.
@@ -31,27 +51,42 @@ Token Velocity problem:
 - Throughput estimates 1000 TPS at release, 10s finalization. Ripple, similar validator design, 70,000 NOW, 3.7s finalization.
 - How do validators take turns? (Might be in LibraBFT paper) Time or # based leadership? Ripple makes more effort to clarify.
 - Maintains pseudonymity of every other Blockchain, difficult to ensure KYC/other regulatory requirements
+- Authorized resellers for reserves - potentially opens up monopolistic behavior (high fees to swap) or security concerns (too many auth keys with high power)
+- Libra Association manually *(?)* controls minting/destroying supply of Libra Coin, in response to authorized reseller orders.
+	+ How will deposits into reserve be verified to ensure no hyperinflation from minting new coins?
+	+ They manually control who is an authorized reseller - how does this eliminate the potential that new coins are minted by them? p24
+- Goal of full decentralization, but not there yet, currently permissioned, closed network. p24. Why? Ethereum is PoW right now with plans to go to PoS and is very, very similar.
+	+ No explanation for what PoS standards they will be using
 ## Interesting Technical Mechanisms
 - Trying to figure out how to update modules, **a la Tezos, p6.**
 - Event emission, p6. Quicker confirmation than not doing it, but more overhead. p6.
 - Verification of transaction scripts and modules, p10.
-- Merkle Tree optimization, p15.
+- Merkle tree acculumator, p14.
+- Pruning old states, p14.
+- Merkle Tree optimization, p15. Similar to Ethereum optimization but shorter proof. But how often does this occur on a normal Blockchain?
+- Account rent, p16, like Whale Protocol.
+- Considering punishing bad actors, p25, rewarding participation in votes. Tezos and others already do this.
+--------------------
 ## In General
 - **VERY** Similar to Ethereum, including gas model, account model, smart contract model.
 - PoS based
 - Starting out Libra Association only, later will be open to all
+- Validator leader similar to Ripple, but undefined of how leadership transfers.
 - Merkle Trees
 - Accounts, not UTXO. *Claim that most are UTXO based,* but many are account based already, not original.
+- Networking is fairly standard, gossip, direct lines because validators are controlled for now. p19.
+- Built with Rust
 ## Nontechnical Overview
 - Try to enable innovation around financial services and accessibility
 - Focus on mobile-accessible? Potentially difficult
 - Reduce fees via blockchain (like all blockchain)
 - **Adoption through scale and reputation (Libra Association)**
 - **Governed by Libra Association** ***temporarily***
-- Stablecoin aspects: backed by reserves held in traditional assets by Libra Association (FB and co)
-- Profits from reserves go to Libra Association
+- Stablecoin aspects: backed by reserves held in cash and government securities by Libra Association (FB and co)
+- Profits from reserves go to Libra Association members
 - Move (Eth-like types, automatic proofs for txs), BFT (Weak, security through trust of Libra Association), built off existing mechanisms (BFT, Merkle Trees a la Bitcoin, etc), pseudoanonymous (a.k.a Libra Association could regulate in some way and reveal identity to govts)
 
+------------
 
 # Tezos: A self-governing, self-amending, PoS blockchain with FP and provable code
 ## Talking Points
@@ -80,6 +115,8 @@ Token Velocity problem:
 - Not UTXO, but accounts
 - Contracts destroyed when their balance is too low
 - Smart contracts strict with storage and compute, but could be voted on to be changeed in the future
+
+------------
 
 # RChain: A blockchain driven by Rho Calculus
 ## Talking Points
