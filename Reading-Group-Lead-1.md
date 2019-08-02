@@ -17,7 +17,7 @@ Token Velocity problem:
 ------------
 
 # Libra: A centralized Blockchain from Facebook, PayPal, etc, with reserves held in cash to back the token
-## Discussion Points
+## Talking Points
 - Similarities to Ethereum
 - Governance model: Libra Association
 - Transition to open membership
