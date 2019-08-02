@@ -23,9 +23,16 @@ Token Velocity problem:
 - Profits from reserves go to Libra Association
 - Move (Eth-like types, automatic proofs for txs), BFT (Weak, security through trust of Libra Association), built off existing mechanisms (BFT, Merkle Trees a la Bitcoin, etc), pseudoanonymous (a.k.a Libra Association could regulate in some way and reveal identity to govts)
 
+
 # Tezos: A self-governing, self-amending, PoS blockchain with FP and provable code
+## Talking Points
 - Big fan of Tezos (not financially invested or incentivized) - why have they not excelled? Lots of contraversy near founding. Lawsuits between technical founders and original organization leadership they hired.
 - Traditionally, many forks. E.g. litecoin, Bitcoin Classic, Ethereum Classic. They capture huge portions of capital without providing any meaningful changes or carrying along reasonably sized developer teams. How to avoid this?
+- Governance: What is it, what are different approaches?
+- Proof-of-stake mechanisms, proof-of-burn, chain-of-activity, Slasher, good? bad?
+- Functional programming, provable code for contracts
+- Selfish mining protections
+## Details
 - Chain propagates a protocol object, which is used by the Blockchain to change the existing protocol
 - Maintains a system timestamp
 - Single chain only overwritten if a better chain comes about, not a tree (DoS avoidance)
@@ -46,12 +53,17 @@ Token Velocity problem:
 - Smart contracts strict with storage and compute, but could be voted on to be changeed in the future
 
 # RChain: A blockchain driven by Rho Calculus
+## Talking Points
 - Built around a person: like BDFL for Python. Good? Bad? Some recent controversy around it. Lots of buzzwords, but also founded in academia
+- Interchain
+- Governance, co-op?
+- Buy-in from Ethereum lead researcher Vlad Zamfir, Casper
+- Rho Calculus?
+## Details
 - Rho VM: "Concurrent execution engine, unprecedented speed and scalability"
 - Interchain by design: how?
 - Auto-migration of languages
 - Co-op governance? Discussion around governance. Proof of stake, Council (Eth), distributed (Bitcoin).
-- Buy-in from Ethereum lead researcher Vlad Zamfir
 - Focus on entire environment, just like Consensys for Ethereum
 - Multi-threaded concurrency across network's nodes using Rho calculus, sharding
 - Formal verification, which we can see later in Tezos
