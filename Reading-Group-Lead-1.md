@@ -23,9 +23,27 @@ Token Velocity problem:
 - Profits from reserves go to Libra Association
 - Move (Eth-like types, automatic proofs for txs), BFT (Weak, security through trust of Libra Association), built off existing mechanisms (BFT, Merkle Trees a la Bitcoin, etc), pseudoanonymous (a.k.a Libra Association could regulate in some way and reveal identity to govts)
 
-
 # Tezos: A self-governing, self-amending, PoS blockchain with FP and provable code
-
+- Big fan of Tezos (not financially invested or incentivized) - why have they not excelled? Lots of contraversy near founding. Lawsuits between technical founders and original organization leadership they hired.
+- Traditionally, many forks. E.g. litecoin, Bitcoin Classic, Ethereum Classic. They capture huge portions of capital without providing any meaningful changes or carrying along reasonably sized developer teams. How to avoid this?
+- Chain propagates a protocol object, which is used by the Blockchain to change the existing protocol
+- Maintains a system timestamp
+- Single chain only overwritten if a better chain comes about, not a tree (DoS avoidance)
+- Automatically bans malicious nodes (DoS attempts)
+- OCaml Type signatures: FP, etc
+- Asynchronous Lwt Monad to avoid blocking on disk operations
+- Protocol: operation, header, apply
+- Self amendment: set_test_protocol, promote_test_protocol. Generally, stakeholder vote to change (to begin) but later more complicated protocol change rules could be implemented.
+- Stake to mine and endorse
+- Inactive accounts destroyed after a year - later changed to just losing staking, voting rights
+	+ introduces a concept of delegation
+- Elections every 3 months, 80% supermajority, test-net beta for 1 quarter
+- Proof-of-stake: proof-of-burn, chain-of-activity, Slasher
+- Clock-based delays to fight DoS
+- No selfish mining allowed - Must reveal next mining target or lose bond
+- Not UTXO, but accounts
+- Contracts destroyed when their balance is too low
+- Smart contracts strict with storage and compute, but could be voted on to be changeed in the future
 
 # RChain: A blockchain driven by Rho Calculus
 - Built around a person: like BDFL for Python. Good? Bad? Some recent controversy around it. Lots of buzzwords, but also founded in academia
