@@ -13,12 +13,41 @@ Token Velocity problem:
 - Bomb: "If you don't hold it, you lose some value!" self-deflationary
 
 # Libra: A centralized Blockchain from Facebook, PayPal, etc, with reserves held in cash to back the token
+## Stated Goals:
+- Global collaborative effort
+- Foster innovation
+- Lower barriers to entry
+- Improve access to financial services, capital
+## Technical Assumptions I Found
+1. "Coin will inherit low inflation, stability due to reserves in bank deposits basket" - not necessarily. Lots of stablecoin literature debating this, with various reserve-backed coins failing to maintain peg. p2
+2. "Bank deposits basket will be stable" ->  What about in a global financial crisis? Bank runs? Other issues? Un-peg resulting in lack of faith with Libra? Would it recover? How? p2
+3. 
+4. "Require a 40Mbps internet connection" for throughput estimates, p22. VERY high. Geopartitioning difficult. Financial exclusion. Many blockchains aim far lower especially when trying to be inclusive. Loses out on benefits from validator design while also not being decentralized.
+5. "Easy to scale through parallelism" p23
+## Issues
+- "New global currency" - obvious issues with government. 
+- Deferring many of the most challenging parts of implementation, p7, etc.
+- No capacity for randomness, probably fine, p8.
+- Throughput estimates 1000 TPS at release, 10s finalization. Ripple, similar validator design, 70,000 NOW, 3.7s finalization.
+- How do validators take turns? (Might be in LibraBFT paper) Time or # based leadership? Ripple makes more effort to clarify.
+- Maintains pseudonymity of every other Blockchain, difficult to ensure KYC/other regulatory requirements
+## Interesting Technical Mechanisms
+- Trying to figure out how to update modules, **a la Tezos, p6.**
+- Event emission, p6. Quicker confirmation than not doing it, but more overhead. p6.
+- Verification of transaction scripts and modules, p10.
+- Merkle Tree optimization, p15.
+## In General
+- **VERY** Similar to Ethereum, including gas model, account model, smart contract model.
+- PoS based
+- Starting out Libra Association only, later will be open to all
+- Merkle Trees
+- Accounts, not UTXO. *Claim that most are UTXO based,* but many are account based already, not original.
 ## Nontechnical Overview
 - Try to enable innovation around financial services and accessibility
 - Focus on mobile-accessible? Potentially difficult
 - Reduce fees via blockchain (like all blockchain)
 - **Adoption through scale and reputation (Libra Association)**
-- **Governed by Libra Association**
+- **Governed by Libra Association** ***temporarily***
 - Stablecoin aspects: backed by reserves held in traditional assets by Libra Association (FB and co)
 - Profits from reserves go to Libra Association
 - Move (Eth-like types, automatic proofs for txs), BFT (Weak, security through trust of Libra Association), built off existing mechanisms (BFT, Merkle Trees a la Bitcoin, etc), pseudoanonymous (a.k.a Libra Association could regulate in some way and reveal identity to govts)
